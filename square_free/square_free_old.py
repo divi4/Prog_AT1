@@ -19,35 +19,32 @@ def square_free(n):
         raise NegativeNumberException    
     elif(n >= 0):
         a = "1"  # This is returned if n = 0
-        count = 1
         for i in range(n):
-            a = replace(a, count) # Replace characters in string
-            print(a)
+            a = replace(a) # Replace characters in string
         return a
 
 
-# Just need 0 for even and 1 for odd in the isEven, don't need actual index just the pattern
-def replace(a, count):
+def replace(a):
     new_str = ""
-    for index, value in enumerate(list(a)):
-        print('Index: {} - Value: {}'.format(count, value))
+    for count in range(len(a)):
         # Pass in index of current element to isEven
-        if(isEven(count)): # Handles even positions
-            if((int(value) == 1)):
-                new_str += "321"
-            elif((int(value) == 2)):
-                new_str += "132"
-            elif((int(value) == 3)):
-                new_str += "213"
+        if(count % 2 == 0): # Handles even positions
+            for count in range(len(a)):
+                if((int(a[count:count+1]) == 1)):
+                    new_str += "321"
+                elif((int(a[count:count+1]) == 2)):
+                    new_str += "132"
+                elif((int(a[count:count+1]) == 3)):
+                    new_str += "213"
         # TODO: consider if better to use elif instead
         else: # Handles odd positions
-            if((int(value) == 1)):
-                new_str += "123"
-            elif((int(value) == 2)):
-                new_str += "231"
-            elif((int(value) == 3)):
-                new_str += "312"
-        count += 1
+            for count in range(len(a)):
+                if((int(a[count:count+1]) == 1)):
+                    new_str += "123"
+                elif((int(a[count:count+1]) == 2)):
+                    new_str += "231"
+                elif((int(a[count:count+1]) == 3)):
+                    new_str += "312"
     return new_str
 
 

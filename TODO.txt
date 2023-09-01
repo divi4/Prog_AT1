@@ -2,5 +2,13 @@ Check if just replace 1 for 0 is faster than
 xor
 
 
-Find passing 1 twice error - prob in square_free loop
-Determine why wrong even/odd replacement given - check the replacement numbers
+Find if better to replace enumerate with 
+another way to access values in list 
+incrementally
+Determine if better to replace else with
+elif style wise
+
+
+Check if have to directly call the assignment
+function or can be called by a 'main' func
+instead - ask if cant find in lectures

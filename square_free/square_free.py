@@ -19,32 +19,37 @@ def square_free(n):
         raise NegativeNumberException    
     elif(n >= 0):
         a = "1"  # This is returned if n = 0
+        count = 1
         for i in range(n):
-            a = replace(a) # Replace characters in string
+            a = replace(a, count) # Replace characters in string
+            print(a)
+            
         return a
 
 
-def replace(a):
+def replace(a, count):
     new_str = ""
-    for count in range(len(a)):
+
+    for index, value in enumerate(list(a)):
+        print('Index: {} - Value: {}'.format(count, value))
         # Pass in index of current element to isEven
-        if(count % 2 == 0): # Handles even positions
-            for count in range(len(a)):
-                if((int(a[count:count+1]) == 1)):
-                    new_str += "321"
-                elif((int(a[count:count+1]) == 2)):
-                    new_str += "132"
-                elif((int(a[count:count+1]) == 3)):
-                    new_str += "213"
+        if(isEven(count)): # Handles even positions
+            if((int(value) == 1)):
+                new_str += "321"
+            elif((int(value) == 2)):
+                new_str += "132"
+            elif((int(value) == 3)):
+                new_str += "213"
         # TODO: consider if better to use elif instead
         else: # Handles odd positions
-            for count in range(len(a)):
-                if((int(a[count:count+1]) == 1)):
-                    new_str += "123"
-                elif((int(a[count:count+1]) == 2)):
-                    new_str += "231"
-                elif((int(a[count:count+1]) == 3)):
-                    new_str += "312"
+            if((int(value) == 1)):
+                new_str += "123"
+            elif((int(value) == 2)):
+                new_str += "231"
+            elif((int(value) == 3)):
+                new_str += "312"
+        count += 1
+
     return new_str
 
 
@@ -60,7 +65,7 @@ main()
 
 
 
-# How works:s
+# How works:
 # So the next loop replaces the numbers in string created in previous loop
 # Loop 1: 1
 # Loop 2: 1 is replaced with 123 as in odd position so: 123
