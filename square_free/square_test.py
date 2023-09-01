@@ -19,17 +19,20 @@ def square_free(n):
         raise NegativeNumberException    
     elif(n >= 0):
         a = "1"  # This is returned if n = 0
+        count = 1
         for i in range(n):
-            a = replace(a) # Replace characters in string
+            a = replace(a, count) # Replace characters in string
+            print(a)
         return a
 
 
-def replace(a):
+# Just need 0 for even and 1 for odd in the isEven, don't need actual index just the pattern
+def replace(a, count):
     new_str = ""
     for index, value in enumerate(list(a)):
-        print('Index: {} - Value: {}'.format(index, value))
+        print('Index: {} - Value: {}'.format(count, value))
         # Pass in index of current element to isEven
-        if(index % 2 == 0): # Handles even positions
+        if(isEven(count)): # Handles even positions
             if((int(value) == 1)):
                 new_str += "321"
             elif((int(value) == 2)):
@@ -44,15 +47,15 @@ def replace(a):
                 new_str += "231"
             elif((int(value) == 3)):
                 new_str += "312"
+        count += 1
     return new_str
 
 
-def isEven(index):
-    for i in range(index):
-        if(i % 2 == 0):
-            return True
-        else:
-            return False
+def isEven(count):
+    if(count % 2 == 0):
+        return True
+    else:
+        return False
     
 
 main()
