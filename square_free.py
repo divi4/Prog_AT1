@@ -35,7 +35,7 @@ def square_free(n):
 def replace(a):
     new_str = ""
     for count in range(len(a)):
-        # Pass in index of current element to isEven
+        # Pass in index of current element to isEven - Using count not best way
         if(isEven(count + 1)): # Handles even positions
             for count in range(len(a)):
                 if((int(a[count:count+1]) == 1)):
@@ -64,8 +64,10 @@ def isEven(count):
         return False
     
 
-# main()
-print(replace("123")) # Replace function is not causing the passing of 1 twice
+main()
+
+# print(replace("123")) 
+# Replace function is not causing the passing of 1 twice
 # Problem of wrong odd even does come up
 # Thinking going about this completely wrong
 

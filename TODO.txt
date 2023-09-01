@@ -1,2 +1,6 @@
 Check if just replace 1 for 0 is faster than
 xor
+
+
+Find passing 1 twice error - prob in square_free loop
+Determine why wrong even/odd replacement given - check the replacement numbers
