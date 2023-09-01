@@ -1,0 +1,16 @@
+Stop and return to it later
+There is a way to do a inverse operation
+
+Create the first half of t
+Then feed a copy of FHT to xor function
+xor gets its length for the loop
+then it selects each character one by one
+to do the xor operation on, adding the
+result to a new string
+Once loop done, return string to thue-morse
+to add to the other half of t to create a
+new t
+Repeating this n times
+
+
+int object is not subscriptable
