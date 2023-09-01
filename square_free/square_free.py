@@ -22,8 +22,6 @@ def square_free(n):
         count = 1
         for i in range(n):
             a = replace(a, count) # Replace characters in string
-            print(a)
-            
         return a
 
 
@@ -31,7 +29,6 @@ def replace(a, count):
     new_str = ""
 
     for index, value in enumerate(list(a)):
-        print('Index: {} - Value: {}'.format(count, value))
         # Pass in index of current element to isEven
         if(isEven(count)): # Handles even positions
             if((int(value) == 1)):
