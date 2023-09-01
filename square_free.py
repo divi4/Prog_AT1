@@ -31,12 +31,12 @@ def square_free(n):
 # Possible to do multiple assignment with strings in for loop? - Not possible
 
 
-# To adjust for zero-based can't we just swap the if even and else inner loops?
+# To adjust for zero-based should probably treat it as like a 'off by one' error, just add one to the arg passed to isEven()
 def replace(a):
     new_str = ""
     for count in range(len(a)):
         # Pass in index of current element to isEven
-        if(isEven(count)): # Handles even positions
+        if(isEven(count + 1)): # Handles even positions
             for count in range(len(a)):
                 if((int(a[count:count+1]) == 1)):
                     new_str += "321"
@@ -57,10 +57,11 @@ def replace(a):
 
 
 def isEven(count):
+    print("Count " + str(count)) # Count passes 1 twice
     if(count % 2 == 0):
-        return False
-    else:
         return True
+    else:
+        return False
     
 
 main()
