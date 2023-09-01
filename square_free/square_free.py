@@ -1,6 +1,3 @@
-# 123
-# No squares, two consecutive identical sub-words
-
 # Follow pep style guidelines
 
 class NegativeNumberException(Exception):
@@ -27,16 +24,11 @@ def square_free(n):
         return a
 
 
-# Could enumerate it if make it a tuple instead, so can pull index and element at same time
-# Possible to do multiple assignment with strings in for loop? - Not possible
-
-
-# To adjust for zero-based should probably treat it as like a 'off by one' error, just add one to the arg passed to isEven()
 def replace(a):
     new_str = ""
     for count in range(len(a)):
-        # Pass in index of current element to isEven - Using count not best way
-        if(isEven(count + 1)): # Handles even positions
+        # Pass in index of current element to isEven
+        if(count % 2 == 0): # Handles even positions
             for count in range(len(a)):
                 if((int(a[count:count+1]) == 1)):
                     new_str += "321"
@@ -57,7 +49,6 @@ def replace(a):
 
 
 def isEven(count):
-    print("Count " + str(count)) # Count passes 1 twice - is it cause of the loops? First loop then second
     if(count % 2 == 0):
         return True
     else:
@@ -66,10 +57,7 @@ def isEven(count):
 
 main()
 
-# print(replace("123")) 
-# Replace function is not causing the passing of 1 twice
-# Problem of wrong odd even does come up
-# Thinking going about this completely wrong
+
 
 
 # How works:s
@@ -83,3 +71,6 @@ main()
 # The numbers we replace with push by 1 to the right
 # from 3 to 1 in odd, starting at 312
 # And 1 to 3 starting at 321 
+
+
+# Length of sequence is 3^n
