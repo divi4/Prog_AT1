@@ -21,7 +21,7 @@ def square_free(n):
     if(n < 0):
         raise NegativeNumberException    
     elif(n >= 0):
-        a = "1"
+        a = "1"  # This is returned if n = 0
         for i in range(n):
             a = replace(a) # Replace characters in string
         return a
@@ -57,14 +57,17 @@ def replace(a):
 
 
 def isEven(count):
-    print("Count " + str(count)) # Count passes 1 twice
+    print("Count " + str(count)) # Count passes 1 twice - is it cause of the loops? First loop then second
     if(count % 2 == 0):
         return True
     else:
         return False
     
 
-main()
+# main()
+print(replace("123")) # Replace function is not causing the passing of 1 twice
+# Problem of wrong odd even does come up
+# Thinking going about this completely wrong
 
 
 # How works:s
