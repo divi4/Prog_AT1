@@ -29,10 +29,14 @@ def square_free(n):
 
 # Could enumerate it if make it a tuple instead, so can pull index and element at same time
 # Possible to do multiple assignment with strings in for loop? - Not possible
+
+
+# To adjust for zero-based can't we just swap the if even and else inner loops?
 def replace(a):
     new_str = ""
     for count in range(len(a)):
-        if(isEven(int(a[count:count+1]))): # Handles even positions
+        # Pass in index of current element to isEven
+        if(isEven(count)): # Handles even positions
             for count in range(len(a)):
                 if((int(a[count:count+1]) == 1)):
                     new_str += "321"
@@ -40,6 +44,7 @@ def replace(a):
                     new_str += "132"
                 elif((int(a[count:count+1]) == 3)):
                     new_str += "213"
+        # TODO: consider if better to use elif instead
         else: # Handles odd positions
             for count in range(len(a)):
                 if((int(a[count:count+1]) == 1)):
@@ -50,6 +55,13 @@ def replace(a):
                     new_str += "312"
     return new_str
 
+
+def isEven(count):
+    if(count % 2 == 0):
+        return True
+    else:
+        return False
+    
 
 main()
 
