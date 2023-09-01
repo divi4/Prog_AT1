@@ -58,9 +58,9 @@ def replace(a):
 
 def isEven(count):
     if(count % 2 == 0):
-        return True
-    else:
         return False
+    else:
+        return True
     
 
 main()
