@@ -9,7 +9,7 @@ def main():
     n = int(input("Input a positive integer: "))
 
     try:
-        print(square_free(n))
+        print(print3Blocks(square_free(n)))
     except NegativeNumberException as e:
         print(e.str)
 
@@ -55,7 +55,15 @@ def isEven(count):
         return True
     else:
         return False
-    
+
+
+def print3Blocks(s):
+    spacedBlocks = ""
+    for i in range(0, len(s), 3):
+        print(i)
+        spacedBlocks += (s[i:i+3] + " ")
+    return spacedBlocks[:-1] # Returns the formatted string, without the last whitespace as it is unneccessary - more elegant than using a conditional statement
+
 
 main()
 
