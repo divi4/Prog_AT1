@@ -19,7 +19,8 @@ def count_squares(s):
 
 
             # May need to use negative slices as having problems with the index number going beyond the available range
-            print((i+2)*search_group+1)
+            print(i)
+            print(int(s[((i+1)*search_group)+1:((i+2)*search_group)+1]))
 
             if(isOdd(len(s))):
                 if(((i+2)*search_group) > (len(s)/2)):
@@ -32,7 +33,9 @@ def count_squares(s):
     return num_squares
 
 
-# TODO: Find out why the slices are producing such big numbers
+# TODO: 
+# Missing 23 on first iteration
+# Getting 12 on 1st instead of 2nd,33 on 2nd instead of 3rd
 
 
 
