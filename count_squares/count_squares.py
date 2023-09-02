@@ -7,8 +7,7 @@ def count_squares(s):
 # Search group number tells function how do current search
             if(int(s[(i*search_group):((i+1)*search_group)]) == int(s[((i+1)*search_group):((i+2)*search_group)])):
                 num_squares += 1
-                if(((i+2)*search_group) > (len(s)/2)):
-                    break
+
 
 # Can compare however we end up exceed the available range:
 # [0,2][2,4][4,6][4:8]  - The loop continues beyond half-way point
@@ -22,11 +21,13 @@ def count_squares(s):
             print(i)
             print(int(s[((i+1)*search_group)+1:((i+2)*search_group)+1]))
 
-            if(isOdd(len(s))):
-                if(((i+2)*search_group) > (len(s)/2)):
-                    break
-                if(int(s[(i*search_group)+1:((i+1)*search_group)+1]) == int(s[((i+1)*search_group)+1:((i+2)*search_group)+1])):
-                    num_squares += 1
+            # if(((i+2)*search_group) > (len(s)/2)):
+            #     break
+
+# Does search offsetted by one
+# TODO do the offsetting search_group - 1 times to find all 
+            if(int(s[(i*search_group)+1:((i+1)*search_group)+1]) == int(s[((i+1)*search_group)+1:((i+2)*search_group)+1])):
+                num_squares += 1
 
             print("End loop")
 
@@ -39,12 +40,6 @@ def count_squares(s):
 
 
 
-
-def isOdd(s):
-    if(s % 2 == 0):
-        return False
-    else:
-        return True
 
 print("Number of squares: {}".format(count_squares("1231233")))
 
