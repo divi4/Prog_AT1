@@ -5,20 +5,34 @@ def count_squares(s):
         for i in range(len(s)): # The number of iterations a search needs to go through and check an entire string will never exceed the length of the string
 
 # Search group number tells function how do current search
-            if(s[(i*search_group):((i+1)*search_group)] == s[((i+1)*search_group):((i+2)*search_group)]):
+            if(int(s[(i*search_group):((i+1)*search_group)]) == int(s[((i+1)*search_group):((i+2)*search_group)])):
                 num_squares += 1
+                if(((i+2)*search_group) > (len(s)/2)):
+                    break
+
+# Can compare however we end up exceed the available range:
+# [0,2][2,4][4,6][4:8]  - The loop continues beyond half-way point
+
             # Due slices being half-inclusive can't use signed (negative) integers in the slices as I won't be able to handle all cases the same
             # To select the last two characters I'll need to do something like [-2:], whilst other characters would be [-3:-1]
             # So instead just repeat the above but start off by +1
+
+
+            # May need to use negative slices as having problems with the index number going beyond the available range
+            print((i+2)*search_group+1)
+
             if(isOdd(len(s))):
-                if(s[(i*search_group)+1:((i+1)*search_group)+1] == s[((i+1)*search_group)+1:((i+2)*search_group)+1]):
+                if(((i+2)*search_group) > (len(s)/2)):
+                    break
+                if(int(s[(i*search_group)+1:((i+1)*search_group)+1]) == int(s[((i+1)*search_group)+1:((i+2)*search_group)+1])):
                     num_squares += 1
+
+            print("End loop")
 
     return num_squares
 
 
-
-# TODO: make the conditionals actually compare the strings
+# TODO: Find out why the slices are producing such big numbers
 
 
 
@@ -29,7 +43,7 @@ def isOdd(s):
     else:
         return True
 
-print(count_squares("1231233"))
+print("Number of squares: {}".format(count_squares("1231233")))
 
 #7+6+4 = 17 iterations for 7 characters
 # Process:
