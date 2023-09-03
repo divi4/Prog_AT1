@@ -41,3 +41,17 @@ count_squares("123123354")
 
 # if index > len(s): break
 # Always occurs on second slice on the latter of half of it
+
+
+
+            # print("Loop:", i)
+            # if((((i+2)*search_group)) > len(s)):
+            #         print("Even second exceeds search, break")
+            # print("First even: ", s[(i*search_group):((i+1)*search_group)])
+            # print("Second even:", s[((i+1)*search_group):((i+2)*search_group)])
+            # print("\n")
+            # if((((i+2)*search_group)+1) > len(s)):
+            #         print("Odd second exceeds search, break")
+            # print("First odd: ", s[((i*search_group)+1):(((i+1)*search_group)+1)])
+            # print("Second odd:", s[(((i+1)*search_group)+1):(((i+2)*search_group)+1)])
+            # print("\n")
