@@ -1,3 +1,7 @@
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+
 def count_squares(s):
     num_squares = 0
 
@@ -5,7 +9,9 @@ def count_squares(s):
         for i in range(len(s)): # The number of iterations a search needs to go through and check an entire string will never exceed the length of the string
 
 # Search group number tells function how do current search
-            if(int(s[(i*search_group):((i+1)*search_group)]) == int(s[((i+1)*search_group):((i+2)*search_group)])):
+            if((((i+2)*search_group)) >= len(s)):
+                break
+            elif(int(s[(i*search_group):((i+1)*search_group)]) == int(s[((i+1)*search_group):((i+2)*search_group)])):
                 num_squares += 1
 
 
@@ -16,20 +22,18 @@ def count_squares(s):
             # To select the last two characters I'll need to do something like [-2:], whilst other characters would be [-3:-1]
             # So instead just repeat the above but start off by +1
 
-
             # May need to use negative slices as having problems with the index number going beyond the available range
-            print(i)
-            print(int(s[((i+1)*search_group)+1:((i+2)*search_group)+1]))
-
             # if(((i+2)*search_group) > (len(s)/2)):
             #     break
 
 # Does search offsetted by one
-# TODO do the offsetting search_group - 1 times to find all 
-            if(int(s[(i*search_group)+1:((i+1)*search_group)+1]) == int(s[((i+1)*search_group)+1:((i+2)*search_group)+1])):
+# TODO do the offsetting search_group - 1 times to find all
+            if((((i+2)*search_group)+1) >= len(s)):
+                break
+            elif(int(s[(i*search_group)+1:((i+1)*search_group)+1]) == int(s[((i+1)*search_group)+1:int(((i+2)*search_group)+1)])):
                 num_squares += 1
 
-            print("End loop")
+        print("End outer loop, search group:", search_group)
 
     return num_squares
 
@@ -39,9 +43,8 @@ def count_squares(s):
 # Getting 12 on 1st instead of 2nd,33 on 2nd instead of 3rd
 
 
-
-
 print("Number of squares: {}".format(count_squares("1231233")))
+
 
 #7+6+4 = 17 iterations for 7 characters
 # Process:
