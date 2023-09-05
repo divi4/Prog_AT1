@@ -1,5 +1,3 @@
-# Follow pep style guidelines
-
 class NegativeNumberException(Exception):
     def __init__(self):
         self.str = "Please input a postive integer"
@@ -20,19 +18,18 @@ def thue_morse(n):
     elif(n >= 0):
         t = "0"
         for i in range(n):
-            t = t + xor(t) # Need to inverse the second half of string
+            t = t + find_inverse(t)  # Concatenates the current string with its inverse to create a new string
         return t
 
 
-def xor(t):
-    # Go through t string one by one and swap each char for opposite character
-    q = 1
+def find_inverse(t):  # Inverses the passed string
     inverse = ""
-    for count in range(len(t)):
-        if((int(t[count:count+1]) and not q) or (not int(t[count:count+1]) and q)):
+    for count in range(len(t)):  # Compares characters in string to a conditional to return its inverse
+        if(int(t[count:count+1]) == 0):
             inverse += "1"
         else:
             inverse += "0"
     return inverse
+
 
 main()

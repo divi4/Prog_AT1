@@ -1,5 +1,3 @@
-# Follow pep style guidelines
-
 class NegativeNumberException(Exception):
     def __init__(self):
         self.str = "Please input a postive integer"
@@ -18,27 +16,26 @@ def square_free(n):
     if(n < 0):
         raise NegativeNumberException    
     elif(n >= 0):
-        a = "1"  # This is returned if n = 0
+        a = "1"  # This initial value will be returned if n = 0
         count = 1
         for i in range(n):
-            a = replace(a, count) # Replace characters in string
+            a = replace(a, count)  # Replaces characters in string
         return a
 
 
 def replace(a, count):
     new_str = ""
 
-    for index, value in enumerate(list(a)):
-        # Pass in index of current element to isEven
-        if(isEven(count)): # Handles even positions
+    for value in a:
+        # Pass in count of current element to isEven
+        if(is_even(count)):  # Handles even positions
             if((int(value) == 1)):
                 new_str += "321"
             elif((int(value) == 2)):
                 new_str += "132"
             elif((int(value) == 3)):
                 new_str += "213"
-        # TODO: consider if better to use elif instead
-        else: # Handles odd positions
+        else:  # Handles odd positions
             if((int(value) == 1)):
                 new_str += "123"
             elif((int(value) == 2)):
@@ -50,7 +47,7 @@ def replace(a, count):
     return new_str
 
 
-def isEven(count):
+def is_even(count):
     if(count % 2 == 0):
         return True
     else:
@@ -59,28 +56,11 @@ def isEven(count):
 
 def print3Blocks(s):
     spacedBlocks = ""
+
     for i in range(0, len(s), 3):
-        print(i)
         spacedBlocks += (s[i:i+3] + " ")
-    return spacedBlocks[:-1] # Returns the formatted string, without the last whitespace as it is unneccessary - more elegant than using a conditional statement
+
+    return spacedBlocks[:-1]  # Returns the formatted string
 
 
 main()
-
-
-
-
-# How works:
-# So the next loop replaces the numbers in string created in previous loop
-# Loop 1: 1
-# Loop 2: 1 is replaced with 123 as in odd position so: 123
-# Loop 3: 1 is replaced with 123, 2 with 132, 3 with 312 
-
-
-# Pattern:
-# The numbers we replace with push by 1 to the right
-# from 3 to 1 in odd, starting at 312
-# And 1 to 3 starting at 321 
-
-
-# Length of sequence is 3^n
