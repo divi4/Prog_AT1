@@ -1,14 +1,7 @@
-Check if just replace 1 for 0 is faster than
-xor
-
-
-Find if better to replace enumerate with 
-another way to access values in list 
-incrementally
-Determine if better to replace else with
-elif style wise
-
-
 Check if have to directly call the assignment
 function or can be called by a 'main' func
 instead - ask if cant find in lectures
+
+
+Print3Blocks:
+This final value of a is then passed to function print3Blocks() as s to be formatted with a space after every three characters in the string. As the whitespace needs to occur after every three characters, the range in the for loop increments by three so that the value i will select the correct range in the slice of s on every iteration of the loop. A string of value of one whitespace character is then concatenated to the end of the selected slice, this new string is added to variable space_blocks, a variable that is created with an empty string when the function is called. When the for loop reaches is exhausted, the variable spaced_blocks is then returned, without its last character, to the print() function in main(), by selecting the slice range of [:-1]. This final whitespace, as added to the end of the string by the for loop, is removed as it’s an unnecessary character when printing to the terminal. 

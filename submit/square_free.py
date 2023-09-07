@@ -55,12 +55,12 @@ def is_even(count):
 
 
 def print3Blocks(s):
-    spacedBlocks = ""
+    spaced_blocks = ""
 
     for i in range(0, len(s), 3):
-        spacedBlocks += (s[i:i+3] + " ")
+        spaced_blocks += (s[i:i+3] + " ")
 
-    return spacedBlocks[:-1]  # Returns the formatted string
+    return spaced_blocks[:-1]  # Returns the formatted string
 
 
 main()
