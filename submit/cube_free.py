@@ -1,22 +1,16 @@
-class NegativeNumberException(Exception):
-    def __init__(self):
-        self.str = "Please input a postive integer"
-
-
 def main():
     n = int(input("Input a positive integer: "))
+    print(thue_morse(n))
 
-    try:
-        print(thue_morse(n))
-    except NegativeNumberException as e:
-        print(e.str)
+    print("Sequence when n = 0: {}".format(thue_morse(0)))
+    print("Sequence when n = 1: {}".format(thue_morse(1)))
+    print("Sequence when n = 2: {}".format(thue_morse(2)))
+    print("Sequence when n = 3: {}".format(thue_morse(3)))
 
 
 def thue_morse(n):
-    if(n < 0):
-        raise NegativeNumberException    
-    elif(n >= 0):
-        t = "0"
+    if(n >= 0):
+        t = "0"  # Holds the output string for the current iteration
         for i in range(n):
             t = t + find_inverse(t)  # Concatenates the current string with its inverse to create a new string
         return t
